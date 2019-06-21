@@ -26,7 +26,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
 
-describe() groups together several related tests in one test suite. Usually you'll put multiple it()s under one describe because it() is used for an individual test. I think of describe() as a whole quiz on one topic and it() as the questions on that quiz
+describe() groups together several related tests in one test suite. Usually you'll put multiple it()s under one describe because it() is used for an individual test. I think of describe() as a whole quiz on one topic and it() as the questions on that quiz.
 
 1. What is the point of `Test Driven Development`? What do you think about this approach?
 

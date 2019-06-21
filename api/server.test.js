@@ -1,7 +1,12 @@
 const server = require("./server.js");
 const supertest = require("supertest");
+const db = require("../data/dbConfig");
 
 describe("server", () => {
+  beforeEach(async () => {
+    await db("games").truncate();
+  });
+
   describe('GET "/" sanity check', () => {
     it("should render with no errors and 200 ok", () => {
       return supertest(server)

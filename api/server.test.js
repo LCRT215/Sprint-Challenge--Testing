@@ -46,5 +46,11 @@ describe("server", () => {
         .send(game)
         .expect(201);
     });
+    it("should return a 400 error when required info is missing", async () => {
+      const res = await supertest(server)
+        .post("/games")
+        .send({ title: "Grand Theft Auto" });
+      expect(res.status).toBe(422);
+    });
   });
 });

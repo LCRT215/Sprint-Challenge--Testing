@@ -20,10 +20,12 @@ server
   .post("/games", async (req, res) => {
     const game = req.body;
 
-    if (!game.title && !game.genre) {
+    if (!game.title || !game.genre) {
       return res.status(422).json({ message: "title and genre required" });
     }
     try {
+      const newGame = await db.add(game);
+      res.status(201).json({ message: "great game!" });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: "error adding to the database" });

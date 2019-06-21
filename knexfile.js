@@ -1,3 +1,4 @@
+// Update with your config settings.
 const dbConnection = process.env.DATABASE_URL;
 
 module.exports = {

@@ -22,3 +22,20 @@ describe("server", () => {
     });
   });
 });
+
+describe('GET "/games"', () => {
+  it("should render list + 200 OK", () => {
+    return supertest(server)
+      .get("/games")
+      .expect(200);
+  });
+  it("should render list in json format", () => {
+    return supertest(server)
+      .get("/games")
+      .expect("Content-Type", /json/i);
+  });
+});
+
+describe('POST "/games"', () => {
+  it("should respond with 201 when new game is added", async () => {});
+});

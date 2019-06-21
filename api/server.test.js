@@ -21,21 +21,30 @@ describe("server", () => {
         });
     });
   });
-});
 
-describe('GET "/games"', () => {
-  it("should render list + 200 OK", () => {
-    return supertest(server)
-      .get("/games")
-      .expect(200);
+  describe('GET "/games"', () => {
+    it("should render list + 200 OK", () => {
+      return supertest(server)
+        .get("/games")
+        .expect(200);
+    });
+    it("should render list in json format", () => {
+      return supertest(server)
+        .get("/games")
+        .expect("Content-Type", /json/i);
+    });
   });
-  it("should render list in json format", () => {
-    return supertest(server)
-      .get("/games")
-      .expect("Content-Type", /json/i);
-  });
-});
 
-describe('POST "/games"', () => {
-  it("should respond with 201 when new game is added", async () => {});
+  describe('POST "/games"', () => {
+    it("should respond with 201 when new game is added", async () => {
+      const game = {
+        title: "UNO",
+        genre: "Card"
+      };
+      const res = await supertest(server)
+        .post("/games")
+        .send(game)
+        .expect(201);
+    });
+  });
 });

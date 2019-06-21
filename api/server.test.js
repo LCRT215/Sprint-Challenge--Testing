@@ -17,7 +17,7 @@ describe("server", () => {
       await supertest(server)
         .get("/")
         .then(res => {
-          expect(res.body).toContain({ message });
+          expect(res.body).toEqual({ message: "hey, girl!" });
         });
     });
   });
